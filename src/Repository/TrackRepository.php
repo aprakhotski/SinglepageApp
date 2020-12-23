@@ -19,6 +19,42 @@ class TrackRepository extends ServiceEntityRepository
         parent::__construct($registry, Track::class);
     }
 
+    public function findUniqueYear()
+    {
+        return $this
+            ->createQueryBuilder('t')
+            ->select('DISTINCT t.year')
+            ->orderBy('t.year', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+
+    }
+
+    public function findUniqueGenre()
+    {
+        return $this
+            ->createQueryBuilder('t')
+            ->select('DISTINCT t.genre')
+            ->orderBy('t.genre', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+
+    }
+
+    public function findUniqueSinger()
+    {
+        return $this
+            ->createQueryBuilder('t')
+            ->select('DISTINCT t.singer')
+            ->orderBy('t.singer', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+
+    }
+
     // /**
     //  * @return Track[] Returns an array of Track objects
     //  */

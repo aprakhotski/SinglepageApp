@@ -581,6 +581,12 @@ pre code {
   margin-left: auto;
 }
 
+.container-fluid table{
+  margin-top: 10px;
+  border-collapse: collapse;
+  width: 550px;
+}
+
 @media (min-width: 576px) {
   .container, .container-sm {
     max-width: 540px;
@@ -3214,6 +3220,7 @@ input[type="button"].btn-block {
 .dropdown-toggle:empty::after {
   margin-left: 0;
 }
+
 
 .dropdown-menu {
   position: absolute;

@@ -11,7 +11,7 @@ class BaseController extends AbstractController
     public function renderDefault()
     {
         return [
-            'title' => 'Sort Music App'
+            'title' => 'Songs of the Century'
         ];
     }
 }
