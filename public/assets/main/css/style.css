@@ -1,0 +1,5 @@
+.col-lg-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 60%;
+    max-width: 60%;
+}

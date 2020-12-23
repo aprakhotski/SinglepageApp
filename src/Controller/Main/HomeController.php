@@ -37,5 +37,20 @@ class HomeController extends BaseController
         return $this->render('main/index.html.twig', $forRender);
     }
 
-    
+    public function listAction( Request $request ){
+        $pageRepo = $this->getDoctrine()->getRepository('PageBundle:Page');
+        $pager = $request->query->get('page') ? $request->query->get('page') : 1;
+        $limit = 2;
+        $pages = $pageRepo->findPages($pager, $limit);
+        $pager = [
+            'pager' => $pager,
+            'total' => $pageRepo->countPage(),
+            'limit' => $limit
+        ];
+
+        return $this->render('PageBundle:Page:list.html.twig',[
+            'pages' => $pages,
+            'navigator' => $pager
+        ]);
+    }
 }

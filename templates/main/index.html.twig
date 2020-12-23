@@ -7,9 +7,59 @@
                 <h1 class="display-4 text-center ">
                     {{ title }}
                 </h1>
+
                 <input id="filter-input" class="form-control mt-5" type="text" placeholder="Filter">
+
                 <div class="row g-3 ">
-                    <div class="col-md-12 col-lg-12">
+                    <div class="col-md-5 col-lg-4 order-md-last">
+                        <h4 class="d-flex justify-content-between align-items-center mb-2 mt-5">
+                            <span class="text-muted">Filter</span>
+                        </h4>
+                        <ul class="list-group mb-3">
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                    <div>
+                                        <label for="singer" class="form-label">Singer</label>
+                                    </div>
+                                    <select class="filter-singer">
+                                        <option value="">All</option>
+                                        {% for val in singers %}
+                                            <option value="{{ val.singer }}">{{ val.singer }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                    <div>
+                                        <label for="genre" class="form-label">Genre</label>
+                                    </div>
+                                    <select class="filter-genre">
+                                        <option value="">All</option>
+                                        {% for val in genres %}
+                                            <option>{{ val.genre }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                    <div>
+                                        <label for="year" class="form-label">Year</label>
+                                    </div>
+
+                                    <select class="filter-year" >
+                                        <option value="">All</option>
+                                        {% for val in years %}
+                                            <option>{{ val.year }}</option>
+                                        {% endfor %}
+
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-7 col-lg-8">
                         <div class="row g-3">
                             <div class="table-responsive">
 
@@ -27,7 +77,10 @@
                                     </thead>
                                     <tbody  id="filter-list" class="wrapper">
                                     {% for track in tracks %}
-                                            <tr id="track">
+                                            <tr data-singer="{{ track.singer }}"
+                                                data-genre="{{ track.genre }}"
+                                                data-year="{{ track.year }}"
+                                            >
                                                 <td id="{{ track.singer }}">{{ track.singer }}</td>
                                                 <td id="{{ track.song }}">{{ track.song }}</td>
                                                 <td id="{{ track.genre }}">{{ track.genre }}</td>
