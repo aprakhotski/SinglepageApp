@@ -14,12 +14,13 @@
                             <span class="text-muted">Filter</span>
                         </h4>
                         <ul class="list-group mb-3">
+						
                             <li class="list-group-item d-flex justify-content-between lh-sm">
                                 <div>
                                     <div>
                                         <label for="singer" class="form-label">Singer</label>
                                     </div>
-                                    <select class="filter-singer">
+                                    <select class="filter-singer form-filter">
                                         <option value="">All</option>
                                         {% for val in singers %}
                                             <option value="{{ val.singer }}">{{ val.singer }}</option>
@@ -32,7 +33,7 @@
                                     <div>
                                         <label for="genre" class="form-label">Genre</label>
                                     </div>
-                                    <select class="filter-genre">
+                                    <select class="filter-genre form-filter">
                                         <option value="">All</option>
                                         {% for val in genres %}
                                             <option>{{ val.genre }}</option>
@@ -46,7 +47,7 @@
                                         <label for="year" class="form-label">Year</label>
                                     </div>
 
-                                    <select class="filter-year" >
+                                    <select class="filter-year form-filter" >
                                         <option value="">All</option>
                                         {% for val in years %}
                                             <option>{{ val.year }}</option>
@@ -56,7 +57,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </div>
+					</div>
                     <div class="col-md-7 col-lg-8">
                         <div class="row g-3">
                             <div class="table-responsive">
@@ -75,7 +76,8 @@
                                     </thead>
                                     <tbody  id="filter-list" class="wrapper">
                                     {% for track in tracks %}
-                                            <tr data-singer="{{ track.singer }}"
+                                            <tr data-visible="shown"
+												data-singer="{{ track.singer }}"
                                                 data-genre="{{ track.genre }}"
                                                 data-year="{{ track.year }}"
                                             >
